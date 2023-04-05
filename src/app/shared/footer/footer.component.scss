@@ -1,0 +1,87 @@
+.footer-bottom {
+  min-height: 257px;
+  /*background-color: #04112C;*/
+  /*  background-color:rgb(4,17,44,0.9);*/
+  /*background-image: url("/assets/images/building_line.png");*/
+  background-color: #242424;
+  margin-top: 15px;
+  padding-top: 35px;
+  padding-bottom: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position: right;
+  background-position-y: 57px;
+  position: relative;
+
+  .lined_city_bg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 450px;
+  }
+
+  .footer-logo {
+    img {
+      padding-top: 100px;
+      padding-bottom: 100px;
+      width: 150px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  .footer__menu__item {
+    li {
+      list-style: none;
+      margin-top: 10px;
+      font-family: var(--ltn__heading-font);
+      span {
+        color: var(--ltn__primary-color);
+        font-family: var(--ltn__heading-font);
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      a {
+        color: #D3D3D3;
+
+        &:hover {
+          color: #008bf0;
+        }
+      }
+    }
+  }
+
+  .app-store-playstore {
+    gap: 15px;
+    display: flex;
+    grid-auto-flow: row;
+    padding-left: 32px;
+
+    img {
+      width: 150px;
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width:480px) {
+  .footer-bottom {
+    min-height: 257px;
+    /*background-color: #04112C;*/
+    margin-top: 15px;
+    padding: 0px 10px 20px;
+    .footer-logo {
+      img {
+        padding-top: 44px;
+        padding-bottom: 22px;
+        width: 150px;
+        margin: 0 auto;
+      }
+    }
+  }
+ }
+
+
+

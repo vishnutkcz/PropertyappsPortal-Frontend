@@ -1,0 +1,81 @@
+<header class="header_main_top">
+  <button type="button" class="btn-toogle-sidebar menu-toggle"><i class="fa fa-bars"></i></button>
+  <div class="header__navbar header__navbar__mob">
+    <span class="close-navbar"><i class="fa-solid fa-xmark"></i></span>
+    <div class="wrapper__sidebar__head">
+      <img src="assets/images/sidebar__wrapper__image.png" alt="sidebar-image" />
+      <button type="button" class="btn btn-btn-primary btn-sidebar-sign-in">Sign In</button>
+      <p>Don’t have an account? <span>Sign Up</span></p>
+    </div>
+    <ul class="mobile-sidebar-menu">
+      <li routerLink="/properties" routerLinkActive="active"><a href="">Home</a></li>
+      <li><a routerLink="/propertydetail" routerLinkActive="active">List Your Property</a></li>
+      <li><a href="">News</a></li>
+      <li><a href="">Get App</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="brand__logo">
+          <img src="assets/images/propertyapplogo.svg" alt="logo" />
+        </div>
+      </div>
+      <div class="col-md-8 d-flex justify-flex-end align-center header_nav_wrapper">
+        <!--web navbar-->
+        <div class="header__navbar header__navbar_web">
+          <ul>
+            <li routerLink="/properties" routerLinkActive="active"><a href="">Home</a></li>
+            <li><a routerLink="/propertydetail" routerLinkActive="active">List Your Property</a></li>
+            <li><a href="">News</a></li>
+            <li><a href="">Get App</a></li>
+            <li><a (click)="OpenLoginModal()">Login</a></li>
+          </ul>
+        </div>
+        <!--web navbar-->
+        <div class="header__button__wrapper">
+          <button type="button" class="btn-wishlist" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-regular fa-heart"></i></button>
+          <ul class="dropdown-menu animate slideIn drop-down-menu-wishlist" aria-labelledby="dropdownMenuButton1">
+            <li>
+              <a class="dropdown-item drop__down__item" href="#">
+                <div class="property__image">
+                  <img src="assets/images/property_wish_list_1.jpg" />
+                </div>
+                <div class="property__detail__short">
+                  <span class="PropertyName__label">VILLA</span>
+                  <span class="Rent__amount">10,000 AED / Year</span>
+                  <span class="Property__place">Al Faheda , Dubai</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item drop__down__item" href="#">
+                <div class="property__image">
+                  <img src="assets/images/property_wish_list_2.jpg" />
+                </div>
+                <div class="property__detail__short">
+                  <span class="PropertyName__label">VILLA</span>
+                  <span class="Rent__amount">10,000 AED / Year</span>
+                  <span class="Property__place">Al Faheda , Dubai</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <button type="button" class="button-user" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-regular fa-user"></i></button>
+          <ul class="dropdown-menu animate slideIn drop-down-menu-wishlist" aria-labelledby="dropdownMenuButton2">
+            <li>
+              <a class="dropdown-item" href="#">My Account</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Sign Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+

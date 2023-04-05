@@ -1,0 +1,320 @@
+.book-property-modal-wrapper {
+  .modal-header {
+    color: #5F6992;
+    font-weight: 500;
+    padding: 10px 24px 10px 24px;
+    border-bottom: 1px solid #E1E1E1;
+
+    .button_close {
+      width: 16px;
+      cursor: pointer;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .modal-body {
+    padding: 15px;
+
+    .propertyDetails {
+      background-color: #F5FCFF;
+      padding: 10px;
+      display: flex;
+      flex-wrap: nowrap;
+      border-radius: 5px;
+
+      .property-photo-image-wrapper {
+        border-radius: 10px;
+
+        img {
+          border-radius: 10px;
+        }
+      }
+
+      .prop_detiles {
+        display: flex;
+        flex-wrap: wrap;
+
+        .fw {
+          width: 50%;
+          padding: 20px 0;
+
+          p {
+            color: #555555;
+            font-size: 13px;
+          }
+
+          h2 {
+            color: #5F6992;
+            font-size: 18px;
+            font-weight: 500;
+          }
+
+          .rent-Amount {
+            font-size: 26px;
+            font-weight: 700;
+            color: #3E3E3E;
+          }
+        }
+      }
+    }
+
+    .ct-qr-wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 50px 0;
+      align-items: center;
+
+      .client_type {
+        display: flex;
+        align-items: center;
+
+        span {
+          color: var(--ltn__primary-color);
+          font-weight: 500;
+        }
+      }
+
+      .qr-scanner {
+        width: 50px;
+        height: 50px;
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: var(--ltn__box-shadow-colored-3);
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+
+        img {
+          width: 25px;
+        }
+      }
+    }
+
+    .subheadingText {
+      color: var(--ltn__primary-color);
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .drop-down-menu-file-uploaded {
+      min-height: 250px;
+      padding: 15px;
+      border-radius: 20px;
+      border: none;
+      box-shadow: var(--ltn__box-shadow-1);
+      left:38px !important;
+      /*     position:fixed;*/
+      a {
+        width: 16px;
+        cursor: pointer;
+        outline: none;
+        box-shadow: none;
+        float: right;
+
+        img {
+        }
+      }
+
+      .file__uploaded__name__label__block {
+        display: flex;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: #EAF6FF;
+        color: #5f6992;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        p {
+          color: #5F6992;
+          white-space: nowrap;
+          max-width: 188px;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .dragNdrop-wrapper {
+        background-color: #EAF6FF;
+        padding: 20px;
+        border: 1px dashed #99C4E4;
+        border-radius: 5px;
+
+        .btn--file-upload-sm {
+          background-color: #47667C;
+          color: #ffffff;
+          height: 35px;
+          font-weight: 400;
+          margin: 12px auto;
+          display: block;
+        }
+      }
+
+      .accptdFileSize {
+        font-size: 14px;
+        padding-top: 6px;
+        color: #A7A8AC;
+        text-align: center;
+      }
+
+      .btn--file-upload-save {
+        background-color: var(--ltn__primary-color);
+        color: #ffffff;
+        height: 35px;
+        font-weight: 400;
+        margin: 12px auto;
+        display: block;
+      }
+    }
+  }
+}
+::ng-deep .mat-dialog-container {
+  padding: 0;
+}
+::ng-deep .cdk-global-overlay-wrapper {
+  overflow-y: auto !important;
+  pointer-events: auto;
+}
+@media only screen and (min-width: 320px) and (max-width:480px) {
+  ::ng-deep .cdk-overlay-pane {
+    width: 480px!important;
+  }
+  .propertyDetails {
+    background-color: #F5FCFF;
+    padding: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+
+    .property-photo-image-wrapper {
+      border-radius: 10px;
+
+      img {
+        border-radius: 10px;
+      }
+    }
+
+    .prop_detiles {
+      display: flex;
+      flex-wrap: wrap;
+      .fw {
+        width: 100% !important;
+        padding: 5px 0 !important;
+        p {
+          color: #555555;
+          font-size: 13px;
+        }
+        h2 {
+          font-size: 15px !important;
+          font-weight: 500;
+        }
+        .rent-Amount {
+          font-size: 26px;
+          font-weight: 700;
+          color: #3E3E3E;
+        }
+      }
+    }
+  }
+  .ct-qr-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0!important;
+    align-items: flex-start!important;
+    flex-direction:column!important;
+    gap:15px!important;
+    .client_type {
+      display: block!important;
+      span {
+        color: var(--ltn__primary-color);
+        font-weight: 500;
+       }
+     }
+   }
+  .form-group input {
+      height:30px;
+      margin-bottom:15px;
+  }
+  .form-group select {
+    height: 30px;
+    margin-bottom: 15px;
+  }
+  .upload-btn-wrapper {
+    input {
+      height: 30px !important;
+    }
+    .btn-uploader {
+      height: 30px !important;
+      padding: 2px 12px !important;
+      span {
+        display: none;
+      }
+    }
+  }
+ }
+  @media only screen and (min-width: 480px) and (max-width:640px) {
+    ::ng-deep .cdk-overlay-pane {
+      width: 90% !important;
+    }
+  }
+
+  @media only screen and (min-width: 640px) and (max-width:768px) {
+    ::ng-deep .cdk-overlay-pane {
+      width: 90% !important;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width:992px) {
+    ::ng-deep .cdk-overlay-pane {
+      width: 90% !important;
+    }
+  }
+
+  @media only screen and (min-width: 320px) and (max-width:992px) {
+
+    .col-md-6 {
+      width: 100% !important;
+    }
+  }
+
+  .upload-btn-wrapper {
+    /*position: relative;*/
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+    input {
+      height: 50px;
+      border-right: 0;
+    }
+
+    .btn-uploader {
+      color: #ffffff;
+      background-color: var(--ltn__primary-color);
+      height: 50px;
+      white-space: nowrap;
+      padding: 8px 20px;
+      border-radius: 4px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+    }
+
+    input[type=file] {
+      font-size: 100px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      opacity: 0;
+      width: 100px;
+      height: 50px;
+    }
+  }
+
+  .btn-book-this {
+    max-width: 250px;
+    margin: 0 auto;
+  }

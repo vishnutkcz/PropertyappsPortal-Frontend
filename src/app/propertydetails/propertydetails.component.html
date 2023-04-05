@@ -1,0 +1,184 @@
+<div class="property_detail_wrapper">
+  <div class="container">
+    <div class="row pt-45">
+      <div class="bread_cruumb">
+        <ul>
+          <li><a href="#"><i class="fa-solid fa-house"></i> Home > </a></li>
+          <li><a href="#">Property Name</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
+        <div class="slick-slider">
+          <div class="basic-container">
+            <div class="top_button_wrapper">
+              <div class="share-like-btn-wrapper">
+                <i class="fa-solid fa-heart btn-wishlist btn-wishlist-selected"></i>
+                <i class="fa-solid fa-share btn-share" id="ShareBy" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                <div class="dropdown-menu animate slideIn drop-down-menu-wishlist" aria-labelledby="ShareBy">
+                  <img src="assets/images/whatsapp-icon.svg" />
+                  <p>Share on <br />
+                  Whatsapp</p>
+                </div>
+              </div>
+            </div>
+            <gallery id="basic-test" imageSize="cover" [items]="items"></gallery>
+            <div class="bottom_button_wrapper">
+              <button class="verified_button"><img src="assets/images/Verified-icon.svg" /> Verified</button>
+              <button class="photo-counter"><img src="assets/images/photo_icon.svg" /> 2 of 8 Photos</button>
+            </div>
+          </div>
+        </div>
+        <div class="property__features__wrapper">
+          <div class="offer_flag">1 Month Free</div>
+          <h2>125,000 AED  / Year</h2>
+          <ul class="highlighted__Features">
+            <li><span><img src="assets/images/ic__bed.svg" alt="bed"> 5 Bed</span></li>
+            <li><span><img src="assets/images/ic__shower.svg" alt="bed"> 5 Bath</span></li>
+            <li><span><img src="assets/images/ic__sqft.svg" alt="bed"> 3450 SqFt</span></li>
+            <li><span><img src="assets/images/ic_chair.svg" alt="bed"> Fully Furnished</span></li>
+            <li><span><img src="assets/images/ic_covered_parking.svg" alt="bed"> Covered Parking</span></li>
+          </ul>
+        </div>
+        <div class="location__details">
+          <img src="assets/images/google-map-icon.svg" alt="google-map" />
+          Al Khawaneej second, Dubai
+        </div>
+        <div class="ammenities_features_wrapper pt-40">
+          <h2>Amenities</h2>
+          <ul>
+            <li><span><img src="assets/images/ic_internet.svg" alt="bed"> Internet</span></li>
+            <li><span><img src="assets/images/ic_seaview.svg" alt="bed"> Seaview</span></li>
+            <li><span><img src="assets/images/ic_shared_gym.svg" alt="bed"> Gym</span></li>
+            <li><span><img src="assets/images/ic_shared_pool.svg" alt="bed"> Swimming Pool</span></li>
+            <li><span><img src="assets/images/ic_central_ac.svg" alt="bed"> Central AC</span></li>
+            <li><span><img src="assets/images/ic_maids_room.svg" alt="bed"> Maids Room</span></li>
+          </ul>
+        </div>
+        <div class="ammenities_features_wrapper pb-40">
+          <h2>Features</h2>
+          <ul>
+            <li><span><img src="assets/images/ic_metro.svg" alt="close-to-metro"> Close To Metro</span></li>
+            <li><span><img src="assets/images/ic_supermarket.svg" alt="super-market"> Super Market</span></li>
+            <li><span><img src="assets/images/ic_restaurant.svg" alt="restaurant"> Restaurant</span></li>
+            <li><span><img src="assets/images/ic_family_friendly.svg" alt="family-friendly"> Family Friendly</span></li>
+            <li><span><img src="assets/images/ic_children_playground.svg" alt="childrens-playgrounds"> Childrens Playground</span></li>
+            <li><span><img src="assets/images/ic_parks.svg" alt="parks"> Parks</span></li>
+          </ul>
+        </div>
+        <div class="description__Wrapper  pb-40">
+          <h1>Description</h1>
+          <p>
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look
+            like readable English. Many desktop publishing packages and web
+          </p>
+          <p>
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less
+          </p>
+        </div>
+        <div class="description__Wrapper pb-40">
+          <h1>Location</h1>
+          <div class="map-wrapper">
+            <img src="assets/images/mao.png" />
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+        <div class="card__wrapper__Container book__property">
+          <button type="button" (click)="OpenPropDialog()" class="btn btn-btn-primary">Book This Property</button>
+        </div>
+        <div class="card__wrapper__Container availble__properties__wrapper">
+          <h5>More properties available in the same area</h5>
+          <div class="flex-wrap">
+            <div class="availble__properties__card animate__animated animate__fadeInUp animate__delay-1s">
+              <div class="property-image-block">
+                <img src="assets/images/property-availble-block.png" />
+                <span class="verfified__banner">
+                  <img src="assets/images/verified_icon.png" />
+                </span>
+              </div>
+              <div class="property-detailes-block">
+                <p>VILLA</p>
+                <h4>1,00.000 / Year</h4>
+                <h6>Al Faheda, Dubai</h6>
+                <ul class="prprty__Features">
+                  <li>
+                    5 Bed
+                    <img src="assets/images/ic__bed.svg" alt="bed" />
+                  </li>
+                  <li>
+                    5 Bath
+                    <img src="assets/images/ic__shower.svg" alt="shower" />
+                  </li>
+                  <li>
+                    3450 Sqft
+                    <img src="assets/images/ic__sqft.svg" alt="sqft" />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="availble__properties__card animate__animated animate__fadeInUp animate__delay-2s">
+              <div class="property-image-block">
+                <img src="assets/images/property-availble-block2.png" />
+                <span class="verfified__banner">
+                  <img src="assets/images/verified_icon.png" />
+                </span>
+              </div>
+              <div class="property-detailes-block">
+                <p>VILLA</p>
+                <h4>125,000 / Year</h4>
+                <h6>Al Faheda, Dubai</h6>
+                <ul class="prprty__Features">
+                  <li>
+                    5 Bed
+                    <img src="assets/images/ic__bed.svg" alt="bed" />
+                  </li>
+                  <li>
+                    5 Bath
+                    <img src="assets/images/ic__shower.svg" alt="shower" />
+                  </li>
+                  <li>
+                    3450 Sqft
+                    <img src="assets/images/ic__sqft.svg" alt="sqft" />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="availble__properties__card animate__animated animate__fadeInUp animate__delay-3s">
+              <div class="property-image-block">
+                <img src="assets/images/property-availble-block.png" />
+                <span class="verfified__banner">
+                  <img src="assets/images/verified_icon.png" />
+                </span>
+              </div>
+              <div class="property-detailes-block">
+                <p>VILLA</p>
+                <h4>1,00.000 / Year</h4>
+                <h6>Al Faheda, Dubai</h6>
+                <ul class="prprty__Features">
+                  <li>
+                    5 Bed
+                    <img src="assets/images/ic__bed.svg" alt="bed" />
+                  </li>
+                  <li>
+                    5 Bath
+                    <img src="assets/images/ic__shower.svg" alt="shower" />
+                  </li>
+                  <li>
+                    3450 Sqft
+                    <img src="assets/images/ic__sqft.svg" alt="sqft" />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
