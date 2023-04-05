@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: propertyappsportal-deploynew
+  name: propertyappsportal-deploy
   namespace: softspace
 spec:
   replicas: 1
