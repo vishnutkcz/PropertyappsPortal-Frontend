@@ -1,6 +1,4 @@
----
-name: Build and Push PropertyappsPortal-Frontend
- Image to AWS ECR
+name: Build and Push PropertyappsPortal-Frontend Image to AWS ECR
 on:
   push:
     branches: [ main ]
@@ -23,7 +21,7 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Build, Tag, and Push the Image to Amazon ECR
+    - name: Build and Tag the Image
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
@@ -31,4 +29,19 @@ jobs:
         IMAGE_TAG: latest
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+
+    - name: Confirm before Pushing Image to Amazon ECR
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        echo "Are you sure you want to push the image to Amazon ECR?"
+        echo "Type 'yes' to continue, or 'no' to cancel."
+        read confirmation
+        if [ "$confirmation" != "yes" ]; then
+          echo "Aborting the workflow."
+          exit 1
+        fi
+
+    - name: Push the Image to Amazon ECR
+      if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
