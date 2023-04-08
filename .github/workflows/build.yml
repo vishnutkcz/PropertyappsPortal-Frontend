@@ -1,45 +1,36 @@
-name: Build and Push PropertyappsPortal-Frontend Image to AWS ECR
+name: Build and Push PropertyappsPortal-Frontend
 on:
   push:
     branches: [ main ]
+
+env:
+  ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+  ECR_REPOSITORY: frontend/propertyappsportal
+
 jobs:
   build-and-push:
     name: Build and Push to ECR
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: me-central-1
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: me-central-1
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+    - name: Get the most recent version tag
+      id: get-version
+      run: echo ::set-output name=version::$(git tag --sort=-v:refname | grep -E "^v[0-9]+\.[0-9]+$" | head -n1 || echo "v00")
 
-      - name: Get latest tag
-        id: latest-tag
-        run: |
-          # Get the latest tag
-          latest_tag=$(git describe --abbrev=0 --tags || echo "v0")
-          # Extract the numeric part of the tag
-          latest_number=$(echo $latest_tag | sed 's/v//')
-          # Increment the numeric part of the tag
-          new_number=$(expr $latest_number + 1)
-          # Set the new tag
-          new_tag=v$new_number
-          echo ::set-output name=TAG::$new_tag
-
-      - name: Build, Tag, and Push the Image to Amazon ECR
-        id: build-image
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: frontend/propertyappsportal
-        run: |
-          IMAGE_TAG=${{ steps.latest-tag.outputs.TAG }}
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+    - name: Build and Push the Image to Amazon ECR
+      env:
+        ECR_REGISTRY: ${{ env.ECR_REGISTRY }}
+        ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
+        IMAGE_TAG: ${{ steps.get-version.outputs.version }}
+      run: |
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
