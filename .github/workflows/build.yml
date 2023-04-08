@@ -23,7 +23,16 @@ jobs:
 
       - name: Get latest tag
         id: latest-tag
-        run: echo ::set-output name=TAG::$(git describe --abbrev=0 --tags || echo "v0")
+        run: |
+          # Get the latest tag
+          latest_tag=$(git describe --abbrev=0 --tags || echo "v0")
+          # Extract the numeric part of the tag
+          latest_number=$(echo $latest_tag | sed 's/v//')
+          # Increment the numeric part of the tag
+          new_number=$(expr $latest_number + 1)
+          # Set the new tag
+          new_tag=v$new_number
+          echo ::set-output name=TAG::$new_tag
 
       - name: Build, Tag, and Push the Image to Amazon ECR
         id: build-image
