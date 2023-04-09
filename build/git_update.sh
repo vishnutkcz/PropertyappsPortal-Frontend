@@ -4,7 +4,7 @@ VERSION=""
 xaxaxaxa
 sasasasas
 sSsSsSsAAAAAAAAAAAAAAA
-xxxxxxxx
+xxxxxxxxcxcxcxxxxxxxxxxxxxxxx
 ###############pppppasssasas
 
 # get parameters
