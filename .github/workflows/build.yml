@@ -39,3 +39,15 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        
+      - name: Image update to Deployment YAML file
+      id: image-update
+      run: |
+        rm -rf kubernetes/deployment.yaml
+        cp -pr kubernetes/deployment._copy.yaml kubernetes/deployment.yaml
+        echo $IMAGE_TAG
+        FILE="kubernetes/deployment.yaml"
+        sed -i "s/\$IMAGE_ID/$IMAGE_ID/g" $FILE
+        echo "Deployment YAML file updated successfully."
+        
+        
