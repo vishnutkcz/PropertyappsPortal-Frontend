@@ -7,7 +7,7 @@ sSsSsSsAAAAAAAAAAAAAAA
 xxxxxxxxcxcxcxxxxxxxxxxxxxxxx
 ###############pppppasssasas
 
-# get parameters
+# get parametersAAAAAAAAAAAAAAAA
 while getopts v: flag
 +++++++++++++++
 do
