@@ -38,7 +38,7 @@ jobs:
         IMAGE_TAG: ${{ steps.time.outputs.date }}
       run: |
         echo $IMAGE_TAG
-        ll kubernetes/deployment.yaml
+        ls -la kubernetes/deployment.yaml
         rm -rf kubernetes/deployment.yaml
         cp -pr kubernetes/deployment_copy.yaml kubernetes/deployment.yaml
         FILE="kubernetes/deployment.yaml"
