@@ -23,7 +23,7 @@ jobs:
 
     - name: Get current time
       id: time
-      run: echo "::set-output name=date::$(date +%Y-%m-%d-%H-%M-%S)"
+      run: echo "::set-output name=date::$(TZ=Asia/Kolkata date  "+%Y-%m-%d-%H-%M-%S")"
 
     - name: Build, Tag, and Push the Image to Amazon ECR
       id: build-image
