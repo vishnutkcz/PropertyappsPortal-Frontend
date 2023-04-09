@@ -22,7 +22,7 @@ spec:
       #       claimName: efs-assets-pvc
       containers:
         - name: propertyappsportal-container
-          image: 144444637464.dkr.ecr.me-central-1.amazonaws.com/frontend/propertyappsportal:${{ env.IMAGE_TAG }}
+          image: 144444637464.dkr.ecr.me-central-1.amazonaws.com/frontend/propertyappsportal:$IMAGE
           # volumeMounts:
           #   - name: efs-assets
           #     mountPath: /usr/share/nginx/html/images
