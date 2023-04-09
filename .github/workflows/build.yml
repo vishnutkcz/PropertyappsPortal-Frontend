@@ -1,27 +1,36 @@
-  - name: Configure AWS credentials
-    uses: aws-actions/configure-aws-credentials@v1
-    with:
-      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      aws-region: me-central-1
+name: Build and Push PropertyappsPortal-Frontend Image to AWS ECR
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build-and-push:
+    name: Build and Push to ECR
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
 
-  - name: Get current time
-    id: time
-    run: echo "::set-output name=date::$(TZ=Asia/Kolkata date  '+%Y-%m-%d-%H-%M-%S')"
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: me-central-1
 
-  - name: Build and push Docker image to ECR
-    id: build-image
-    env:
-      ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
-      ECR_REPOSITORY: frontend/propertyappsportal
-      IMAGE_TAG: ${{ steps.time.outputs.date }}
-    run: |
-      docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-      docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
 
-  - name: Update deployment YAML file
-    uses: docker://peterevans/yaml-fomat-action:2.2.0
-    with:
-      args: |
-        yq eval '.spec.template.spec.containers[0].image = "'${{ secrets.ECR_REGISTRY }}'/'${{ secrets.ECR_REPOSITORY }}':'${{ steps.build-image.outputs.IMAGE_TAG }}'"' deployment.yaml > deployment_new.yaml
-        mv deployment_new.yaml deployment.yaml
+    - name: Get current time
+      id: time
+      run: echo "::set-output name=date::$(TZ=Asia/Kolkata date  "+%Y-%m-%d-%H-%M-%S")"
+
+    - name: Build, Tag, and Push the Image to Amazon ECR
+      id: build-image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: frontend/propertyappsportal
+        IMAGE_TAG: ${{ steps.time.outputs.date }}
+      run: |
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
