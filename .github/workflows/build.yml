@@ -21,19 +21,16 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Get current image tag
-      id: get-latest-tag
-      run: |
-        TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v00")
-        NEXT_VERSION=$(echo $TAG | awk -Fv '{print $2+1}')
-        echo "::set-output name=tag::v$(printf "%02d" $NEXT_VERSION)"
+    - name: Get current time
+      id: time
+      run: echo "::set-output name=date::$(date +%Y-%m-%d-%H-%M-%S)"
 
     - name: Build, Tag, and Push the Image to Amazon ECR
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: frontend/propertyappsportal
-        IMAGE_TAG: ${{ steps.get-latest-tag.outputs.tag }}
+        IMAGE_TAG: ${{ steps.time.outputs.date }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
