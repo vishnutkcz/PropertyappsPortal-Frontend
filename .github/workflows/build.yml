@@ -44,6 +44,8 @@ jobs:
         FILE="kubernetes/deployment.yaml"
         sed -i "s/\$IMAGE_ID/$IMAGE_TAG/g" $FILE
         cat kubernetes/deployment.yaml
+        git config --global user.name "vishnutkcz"
+        git config --global user.email "vishnu.tk@crozaint.com"
         git add kubernetes/deployment.yaml
         git commit -m "Update deployment YAML file with new image tag"
         git push
