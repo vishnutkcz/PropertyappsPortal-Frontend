@@ -39,10 +39,9 @@ jobs:
       run: |
         echo $IMAGE_TAG
         pwd
-        ls -la kubernetes/deployment_copy.yaml
-        touch kubernetes/deployment.yaml
         ls -la kubernetes/
-        cp -pr kubernetes/deployment_copy.yaml kubernetes/deployment.yaml
+        cat kubernetes/deployment_copy.yaml > kubernetes/deployment.yaml
         FILE="kubernetes/deployment.yaml"
         sed -i "s/\$IMAGE_ID/$IMAGE_TAG/g" $FILE
+        cat kubernetes/deployment.yaml
         echo "Deployment YAML file updated successfully."
