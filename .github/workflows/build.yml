@@ -29,16 +29,6 @@ jobs:
     - name: Get current time
       id: time
       run: echo "::set-output name=date::$(TZ=Asia/Kolkata date  "+%Y-%m-%d-%H-%M-%S")"
-
-    - name: Build, Tag, and Push the Image to Amazon ECR
-      id: build-image
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: frontend/propertyappsportal
-        IMAGE_TAG: ${{ steps.time.outputs.date }}
-      run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         
     - name: Image update to Deployment YAML file
       id: image-update
@@ -48,6 +38,7 @@ jobs:
         IMAGE_TAG: ${{ steps.time.outputs.date }}
       run: |
         echo $IMAGE_TAG
+        ll kubernetes/deployment.yaml
         rm -rf kubernetes/deployment.yaml
         cp -pr kubernetes/deployment_copy.yaml kubernetes/deployment.yaml
         FILE="kubernetes/deployment.yaml"
