@@ -42,10 +42,13 @@ jobs:
         
     - name: Image update to Deployment YAML file
       id: image-update
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: frontend/propertyappsportal
+        IMAGE_TAG: ${{ steps.build-image.outputs.IMAGE_TAG }}
       run: |
         rm -rf kubernetes/deployment.yaml
         cp -pr kubernetes/deployment_copy.yaml kubernetes/deployment.yaml
-        echo $IMAGE_TAG
         FILE="kubernetes/deployment.yaml"
-        sed -i "s/\$IMAGE_ID/$IMAGE_TAG/g" $FILE
+        sed -i "s#image: .*#image: $ECR_REGISTRY\/$ECR_REPOSITORY:$IMAGE_TAG#g" $FILE
         echo "Deployment YAML file updated successfully."
