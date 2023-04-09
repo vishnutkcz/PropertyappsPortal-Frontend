@@ -6,6 +6,7 @@ sasasasas
 sSsSsSsAAAAAAAAAAAAAAA
 xxxxxxxxcxcxcxxxxxxxxxxxxxxxx
 ###############pppppasssasas
+dsssdsdsdsdsdsd
 
 # get parametersAAAAAAAAAAAAAAAA
 while getopts v: flag
