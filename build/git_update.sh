@@ -22,6 +22,7 @@ if [[ $CURRENT_VERSION == '' ]]
 then
   CURRENT_VERSION='v0.1.0'
 fi
+xsxsxsxs
 echo "Current Version: $CURRENT_VERSION"
 ###vishnu#######
 
