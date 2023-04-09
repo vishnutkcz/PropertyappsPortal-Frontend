@@ -49,5 +49,5 @@ jobs:
         git remote set-url origin https://vishnutkcz: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@github.com/vishnutkcz/PropertyappsPortal-Frontend.git
         git add kubernetes/deployment.yaml
         git commit -m "Update deployment YAML file with new image tag"
-        git push
+        git push -u origin main
         echo "Deployment YAML file updated successfully."
