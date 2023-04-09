@@ -38,9 +38,9 @@ jobs:
         IMAGE_TAG: ${{ steps.time.outputs.date }}
       run: |
         echo $IMAGE_TAG
-        ls -la kubernetes/deployment.yaml
-        rm -rf kubernetes/deployment.yaml
-        cp -pr kubernetes/deployment_copy.yaml kubernetes/deployment.yaml
-        FILE="kubernetes/deployment.yaml"
+        ls -la ./kubernetes/deployment.yaml
+        rm -rf ./kubernetes/deployment.yaml
+        cp -pr ./kubernetes/deployment_copy.yaml ./kubernetes/deployment.yaml
+        FILE="./kubernetes/deployment.yaml"
         sed -i "s/\$IMAGE_ID/$IMAGE_TAG/g" $FILE
         echo "Deployment YAML file updated successfully."
