@@ -39,7 +39,7 @@ jobs:
       run: |
         echo $IMAGE_TAG
         pwd
-        ls -la ./kubernetes/deployment.yaml
+        ls -la 
         rm -rf ./kubernetes/deployment.yaml
         cp -pr ./kubernetes/deployment_copy.yaml ./kubernetes/deployment.yaml
         FILE="./kubernetes/deployment.yaml"
