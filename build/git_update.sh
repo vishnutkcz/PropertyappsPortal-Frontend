@@ -9,6 +9,7 @@ xxxxxxxxcxcxcxxxxxxxxxxxxxxxx
 
 # get parametersAAAAAAAAAAAAAAAA
 while getopts v: flag
+DDDDDDDDDDDDDDDDDDDDDDDDD
 +++++++++++++++
 do
   case "${flag}" in
