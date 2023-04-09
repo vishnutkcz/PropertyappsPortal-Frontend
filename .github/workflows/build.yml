@@ -46,7 +46,7 @@ jobs:
         cat kubernetes/deployment.yaml
         git config --global user.name "vishnutkcz"
         git config --global user.email "vishnu.tk@crozaint.com"
-        git remote set-url origin https://vishnutkcz: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@github.com/vishnutkcz/PropertyappsPortal-Frontend.git
+        git remote set-url origin https://vishnutkcz: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@github.com/vishnutkcz/PropertyappsPortal-Frontend.git
         git add kubernetes/deployment.yaml
         git commit -m "Update deployment YAML file with new image tag"
         git push
