@@ -30,7 +30,12 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: frontend/propertyappsportal
-        IMAGE_TAG: ${{ steps.time.outputs.date }}
       run: |
+        IMAGE_TAG=$(TZ=Asia/Kolkata date "+%Y-%m-%d-%H-%M-%S")
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        echo "::set-output name=image_tag::$IMAGE_TAG"
+
+    - name: Update Deployment Image
+      run: |
+        sed -i 's/image: 144444637464.dkr.ecr.me-central-1.amazonaws.com\/frontend\/propertyappsportal:latest/image: 144444637464.dkr.ecr.me-central-1.amazonaws.com\/frontend\/propertyappsportal:${{ steps.build-image.outputs.image_tag }}}/' kubernetes/frontend-deployment-Service.yaml
